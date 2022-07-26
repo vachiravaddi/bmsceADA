@@ -33,6 +33,7 @@ vis[j]=0;
 vis[src]=1;
 r=r+1;
 q[r]=src;
+printf("%d   ",src);
 while(f<=r)
 {
 i=q[f];
@@ -44,6 +45,7 @@ if(a[i][j]==1 && vis[j]!=1)
 vis[j]=1;
 r=r+1;
 q[r]=j;
+printf("%d   ",j);
 }
 }
 }
