@@ -3,8 +3,15 @@
 
 int a[10][10];
 int n,vis[10];
-int dfs(int);
-
+void dfs(int src){
+    vis[src] = 1;
+    printf("node is %d \n",src);
+    for (int i=1;i<=n;i++){
+        if(a[src][i] == 1 && vis[i] != 1){
+            dfs(i);
+        }
+    }
+}
 void main()
 {
 int i,j,src,ans;
@@ -25,37 +32,6 @@ scanf("%d",&a[i][j]);
 }
 printf("\n enter the source node:\t");
 scanf("%d",&src);
-ans = dfs(src);
-if(ans==1)
-{
-printf("\n graph is connected\n ");
-}
-else
-{
-printf("\n gragh is not connected\n");
-}
+dfs(src);
 getch();
-}
-int dfs(int src)
-{
-int j;
-vis[src]=1;
-for(j=1;j<=n;j++)
-{
-if(a[src][j]==1 && vis[j]!=1)
-{
-dfs(j);
-}
-}
-for(j=1;j<=n;j++)
-{
-if(vis[j]!=1)
-{
-printf("\n node %d is not reachable\n",j);
-}
-else
-{
-printf(" \n node %d is reachable \n" ,j);
-}
-}
 }
